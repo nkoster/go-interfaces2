@@ -18,5 +18,6 @@ func main() {
 	// bytesRead, _ := response.Body.Read(bodyBuf)
 	// fmt.Println(string(bodyBuf))
 	// fmt.Println(bytesRead)
-	io.Copy(os.Stdout, response.Body)
+	written, result := io.Copy(os.Stdout, response.Body)
+	fmt.Printf("\n\nBytes written: %d, Error: %v\n", written, result)
 }
